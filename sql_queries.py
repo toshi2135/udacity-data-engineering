@@ -64,7 +64,7 @@ artist_table_create = ("""
     ALTER TABLE songplays
     ADD CONSTRAINT fk_artists
     FOREIGN KEY (artist_id)
-    REFERENCES artists(artist_id)
+    REFERENCES artists(artist_id);
 """)
 
 time_table_create = ("""
@@ -81,7 +81,7 @@ time_table_create = ("""
     ALTER TABLE songplays
     ADD CONSTRAINT fk_time
     FOREIGN KEY (start_time)
-    REFERENCES time(start_time)
+    REFERENCES time(start_time);
 """)
 
 # INSERT RECORDS
