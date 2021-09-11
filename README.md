@@ -53,3 +53,6 @@ In addition to the data files, the project workspace includes six files:
         python etl.py
         
 3. Check the availability of the data by running all code in `test.ipynb`
+
+### ER Diagram
+![ER Diagram](udacity-data-engineering-project-1.png)
