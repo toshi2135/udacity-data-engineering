@@ -11,8 +11,8 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays (
     songplay_id serial PRIMARY KEY, 
-    start_time timestamp, 
-    user_id int, 
+    start_time timestamp NOT NULL, 
+    user_id int NOT NULL, 
     level varchar, 
     song_id varchar, 
     artist_id varchar, 
@@ -30,6 +30,11 @@ user_table_create = ("""
     gender varchar, 
     level varchar
     );
+    
+    ALTER TABLE songplays
+    ADD CONSTRAINT fk_users
+    FOREIGN KEY (user_id)
+    REFERENCES users(user_id);
 """)
 
 song_table_create = ("""
@@ -40,6 +45,11 @@ song_table_create = ("""
     year int, 
     duration numeric
     );
+    
+    ALTER TABLE songplays
+    ADD CONSTRAINT fk_songs
+    FOREIGN KEY (song_id)
+    REFERENCES songs(song_id);
 """)
 
 artist_table_create = ("""
@@ -50,11 +60,16 @@ artist_table_create = ("""
     latitude varchar, 
     longitude varchar
     );
+    
+    ALTER TABLE songplays
+    ADD CONSTRAINT fk_artists
+    FOREIGN KEY (artist_id)
+    REFERENCES artists(artist_id)
 """)
 
 time_table_create = ("""
     CREATE TABLE IF NOT EXISTS time (
-    start_time timestamp, 
+    start_time timestamp PRIMARY KEY, 
     hour int, 
     day int, 
     week int, 
@@ -62,6 +77,11 @@ time_table_create = ("""
     year int, 
     weekday int
     );
+    
+    ALTER TABLE songplays
+    ADD CONSTRAINT fk_time
+    FOREIGN KEY (start_time)
+    REFERENCES time(start_time)
 """)
 
 # INSERT RECORDS
