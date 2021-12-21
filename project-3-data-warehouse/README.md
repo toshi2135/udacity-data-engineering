@@ -90,4 +90,4 @@ Do the following steps in your `README.md` file.
 3. [Optional] Provide example queries and results for song play analysis.
 
 ## ER Diagram
-![er-diagram](udacity-data-engineering-project-1.png)
+![er-diagram](udacity-data-engineering-project-3.png)
