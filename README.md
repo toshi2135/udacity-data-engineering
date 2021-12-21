@@ -5,3 +5,6 @@
 
 ## NoSQL Data Models
 - [Project 2 - Data Modeling with Apache Cassandra](https://github.com/toshi2135/udacity-data-engineering/tree/main/project-2-nosql-data-modeling)
+
+## Data Warehouse
+- [Project 3 - Data Warehousing on AWS](https://github.com/toshi2135/udacity-data-engineering/tree/main/project-3-data-warehouse)
