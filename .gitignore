@@ -133,3 +133,4 @@ data/
 .DS_Store
 *.pdf
 project-2-nosql-data-modeling/submit/home/event_data/
+*.cfg
