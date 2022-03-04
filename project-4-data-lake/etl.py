@@ -15,6 +15,9 @@ os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 
 def create_spark_session():
+    """
+    Create Spark session.
+    """
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
@@ -23,6 +26,13 @@ def create_spark_session():
 
 
 def process_song_data(spark, input_data, output_data):
+    """
+    Process song_data using Spark.
+    
+    :param spark: Spark session
+    :param input_data: input data path
+    :param output_data: output data path
+    """
     # get filepath to song data file
     song_data = input_data + "song_data/A/A/A/*.json"
     
@@ -43,10 +53,17 @@ def process_song_data(spark, input_data, output_data):
                                    "artist_longitude AS longtitude"])
     
     # write artists table to parquet files
-    artists_table.write.format("parquet").save("artists_table.parquet")
+    artists_table.write.format("parquet").save(output_data + "artists_table.parquet")
 
 
 def process_log_data(spark, input_data, output_data):
+    """
+    Process log_data using Spark
+    
+    :param spark: Spark session
+    :param input_data: input data path
+    :param output_data: output data path
+    """
     # get filepath to log data file
     log_data = input_data + "log_data/*/*/*.json"
 
@@ -64,7 +81,7 @@ def process_log_data(spark, input_data, output_data):
                                  "level"])
     
     # write users table to parquet files
-    users_table.write.format("parquet").save("users_table.parquet")
+    users_table.write.format("parquet").save(output_data + "users_table.parquet")
 
     # create timestamp column from original timestamp column
     get_timestamp = udf(lambda x: datetime.fromtimestamp(x/1000.0), TimestampType())
@@ -82,10 +99,10 @@ def process_log_data(spark, input_data, output_data):
                             "month(datetime) AS month", "year(datetime) AS year"])
     
     # write time table to parquet files partitioned by year and month
-    time_table.write.partitionBy("year", "month").format("parquet").save("time_table.parquet")
+    time_table.write.partitionBy("year", "month").format("parquet").save(output_data + "time_table.parquet")
 
     # read in song data to use for songplays table
-    song_df = spark.read.parquet("songs_table.parquet")
+    song_df = spark.read.parquet(output_data + "songs_table.parquet")
 
     # extract columns from joined song and log datasets to create songplays table 
     songplays_table = df \
@@ -102,7 +119,7 @@ def process_log_data(spark, input_data, output_data):
                  "year(datetime) AS year"])
 
     # write songplays table to parquet files partitioned by year and month
-    songplays_table.write.partitionBy("year", "month").format("parquet").save("songplays_table.parquet")
+    songplays_table.write.partitionBy("year", "month").format("parquet").save(output_data + "songplays_table.parquet")
 
 
 def main():
