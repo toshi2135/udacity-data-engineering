@@ -11,3 +11,6 @@
 
 ## Data Warehouse
 - [Project 4 - Data Lake with Spark](https://github.com/toshi2135/udacity-data-engineering/tree/main/project-4-data-lake)
+
+## Data Pipelines
+- [Project 5 - Data Pipelines with Airflow](https://github.com/toshi2135/udacity-data-engineering/tree/main/project-5-data-pipelines)
