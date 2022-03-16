@@ -42,7 +42,7 @@ To get started with the project:
 You should be able to execute the DAG successfully, but if you check the logs, you will see only `operator not implemented` messages.
 
 ### Configuring the DAG
-In the DAG, add default parameters according to these guidelines
+In the DAG, add `default parameters` according to these guidelines
 
 * The DAG does not have dependencies on past runs
 * On failure, the task are retried 3 times
