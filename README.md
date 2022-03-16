@@ -14,3 +14,6 @@
 
 ## Data Pipelines
 - [Project 5 - Data Pipelines with Airflow](https://github.com/toshi2135/udacity-data-engineering/tree/main/project-5-data-pipelines)
+
+## Capstone Project
+- [Capstone Project](https://github.com/toshi2135/udacity-data-engineering/tree/main/project-capstone)
