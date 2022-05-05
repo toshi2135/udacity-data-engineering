@@ -62,7 +62,9 @@ Since the scope of the project will be highly dependent on the data, these two t
 
 In the [Project Rubric](https://review.udacity.com/#!/rubrics/2497/view), you'll see more detail about the requirements. Use the rubric to assess your own project before you submit to Udacity for review. As with other projects, Udacity reviewers will use this rubric to assess your project and provide feedback. If your project does not meet specifications, you can make changes and resubmit.
 
-# Project Resources
+---
+
+## Project Resources
 
 ## Datasets
 
@@ -89,11 +91,11 @@ Gathering the right data is one of the most important task for data engineers. I
 
 [This Kaggle dataset](https://www.kaggle.com/hugomathien/soccer/home) is a good example of someone who found disparate datasets and combined them to provide an even more valuable dataset for others to analyze.
 
-# Udacity Provided Project
+## Provided Project
 
 If you decide not to create your own capstone project, you can use the one we've provided. For this project, we have some datasets available to you and some ideas for the project. However, it's still open-ended in nature and you'll have to define the data model and the corresponding use cases for your final deliverable.
 
-## Datasets
+## Provided Datasets
 
 The following datasets are included in the project workspace. We purposely did not include a lot of detail about the data and instead point you to the sources. This is to help you get experience doing a self-guided project and researching the data yourself. If something about the data is unclear, make an assumption, document it, and move on. Feel free to enrich your project by gathering and including additional data sources.
 
@@ -110,7 +112,7 @@ Some of the data is already uploaded to the workspace, which you'll see in the n
 
 You can access the immigration data in a folder with the following path: `../../data/18-83510-I94-Data-2016/`. There's a file for each month of the year. An example file name is `i94_apr16_sub.sas7bdat`. Each file has a three-letter abbreviation for the month name. So a full file path for June would look like this: `../../data/18-83510-I94-Data-2016/i94_jun16_sub.sas7bdat`. Below is what it would look like to import this file into pandas. Note: these files are large, so you'll have to think about how to process and aggregate them efficiently.
 
-```
+```python
 fname = '../../data/18-83510-I94-Data-2016/i94_apr16_sub.sas7bdat'
 df = pd.read_sas(fname, 'sas7bdat', encoding="ISO-8859-1")
 ```
@@ -121,7 +123,7 @@ The most important decision for modeling with this data is thinking about the le
 
 You can access the temperature data in a folder with the following path: `../../data2/`. There's just one file in that folder, called `GlobalLandTemperaturesByCity.csv`. Below is how you would read the file into a pandas dataframe.
 
-```
+```python
 fname = '../../data2/GlobalLandTemperaturesByCity.csv'
 df = pd.read_csv(fname)
 ```
